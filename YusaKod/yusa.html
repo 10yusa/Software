@@ -1,0 +1,296 @@
+<div class="hamburger-menu">
+    <div class="menu-icon" onclick="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+</div>
+
+<div class="menu-window" id="menuWindow">
+    <span class="close-icon" onclick="toggleMenu()">&times;</span>
+    <a href="#">Ana Sayfa</a>
+    
+    <a href="#" id="hizmetlerMenu">Hizmetler
+        <div class="submenu" id="hizmetlerAltMenu">
+            <a href="#">Proje Yönetimi</a>
+            <a href="#">Danışmanlık</a>
+            <a href="#">Uygulama</a>
+            <a href="#">Endüstriyel</a>
+            <a href="#">Kurumsal</a>
+            <a href="#">Özel Projeler</a>
+        </div>
+    </a>
+    <a href="#" id="kurumsalMenu">Kurumsal
+        <div class="submenu" id="kurumsalAltMenu">
+          <a href="#">Şirket Profili</a>
+          <a href="#">Vizyon & Misyon</a>
+          <a href="#">Yönetim Ekibi</a>
+          <a href="#">Değerlerimiz</a>
+          <a href="#">Kalite Politikası</a>
+        </div>
+      </a>
+    </a>
+    <a href="#" id="urunlerMenu">Ürünler
+        <div class="submenu" id="urunlerAltMenu">
+            <a href="#">Ürün 1</a>
+            <a href="#">Ürün 2</a>
+            <a href="#">Ürün 3</a>
+        </div>
+    </a>
+    <a href="#" id="iletisimMenu">İletişim
+        <div class="submenu" id="iletisimAltMenu">
+            <a href="#">Telefon</a>
+            <a href="#">E-posta</a>
+            <a href="#">Adres</a>
+
+        </div>
+        <a href="#" id="hakkimizdaMenu">Hakkımızda</a>
+    </a>
+
+</div>
+
+
+<script>
+    function toggleMenu() {
+    const menuWindow = document.getElementById("menuWindow");
+    menuWindow.classList.toggle("show");
+  }
+
+  
+
+
+
+  document.getElementById("urunlerMenu").addEventListener("click", function(event) {
+    event.preventDefault(); // Bağlantı davranışını engelle (sayfa yenilenmesini önler)
+    const urunlerAltMenu = document.getElementById("urunlerAltMenu");
+    urunlerAltMenu.classList.toggle("show"); // "show" sınıfını ekle/kaldır
+  });
+
+  
+
+
+
+
+  document.getElementById("iletisimMenu").addEventListener("click", function(event) {
+    event.preventDefault(); // Bağlantı davranışını engelle (sayfa yenilenmesini önler)
+    const iletisimAltMenu = document.getElementById("iletisimAltMenu");
+    iletisimAltMenu.classList.toggle("show"); // "show" sınıfını ekle/kaldır
+  });
+
+  
+
+
+  document.getElementById("hizmetlerMenu").addEventListener("click", function(event) {
+    event.preventDefault(); // Bağlantı davranışını engelle (sayfa yenilenmesini önler)
+    const hizmetlerAltMenu = document.getElementById("hizmetlerAltMenu");
+    hizmetlerAltMenu.classList.toggle("show"); // "show" sınıfını ekle/kaldır
+  });
+
+
+  // "Kurumsal" menüsüne tıklama olayını dinle
+document.getElementById("kurumsalMenu").addEventListener("click", function(event) {
+    event.preventDefault(); // Bağlantı davranışını engelle (sayfa yenilenmesini önler)
+    const kurumsalAltMenu = document.getElementById("kurumsalAltMenu");
+    kurumsalAltMenu.classList.toggle("show"); // "show" sınıfını ekle/kaldır
+  });
+
+</script>
+
+<style>
+    
+/* Hamburger Icon */
+.hamburger-menu {
+    position: relative;
+    display: inline-block;
+}
+
+.menu-icon {
+    cursor: pointer;
+    padding: 10px;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: #ef0616; /* Daha koyu bir renk */
+    margin: 5px 0;
+    transition: background-color 0.3s ease; /* Geçiş efekti */
+}
+
+/* Menu Window */
+.menu-window {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 300px;
+    background-color: #002842; /* Daha açık bir renk */
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1); /* Daha hafif bir gölge */
+    z-index: 10001;
+    overflow-y: auto;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    border-radius: 10px; /* Köşeleri yuvarlat */
+}
+
+.menu-window.show {
+    transform: translateX(0);
+}
+
+.menu-window a {
+    padding: 15px 20px; /* Daha fazla dolgu */
+    text-decoration: none;
+    display: block;
+    color: #e9ecf0; /* Daha koyu bir renk */
+    font-family: 'Roboto', sans-serif; /* Modern bir yazı tipi */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Geçiş efektleri */
+    border-bottom: 1px solid #eee; /* Ayırıcı çizgi */
+}
+
+.menu-window a:hover {
+    background-color: #f8f9fa; /* Daha açık bir renk */
+    color: #007bff; /* Vurgu rengi */
+}
+
+/* Submenus */
+.submenu {
+    display: none;
+    margin-left: 20px;
+    background-color: #002842; /* Alt menü için farklı bir renk */
+    border-radius: 5px; /* Köşeleri yuvarlat */
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.1); /* Daha hafif bir gölge */
+    padding: 5px 0; /* İç dolgu */
+}
+
+.menu-window a:hover .submenu {
+    display: block;
+}
+
+.submenu a {
+    padding: 10px 20px; /* Daha az dolgu */
+    color: #fbfbfb; /* Daha koyu bir renk */
+}
+
+.submenu a:hover {
+    background-color: #e9ecef; /* Daha açık bir renk */
+    color: #007bff; /* Vurgu rengi */
+}
+
+
+/* Close Icon */
+.close-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #ffffff; /* Daha koyu bir renk */
+}
+
+/* Hamburger Icon Transition */
+.menu-icon:hover .bar {
+    background-color: #007bff; /* Vurgu rengi */
+}
+
+  /* ... diğer stiller ... */
+
+/* Ürünler Menüsü */
+#urunlerMenu {
+    cursor: pointer; /* Tıklanabilir olduğunu belirtmek için imleci değiştir */
+  }
+  
+  /* Alt Menü (Başlangıçta Gizli) */
+  #urunlerAltMenu {
+    display: none; /* veya visibility: hidden; */
+    margin-left: 20px; /* İç içe görünüm için soldan boşluk (isteğe bağlı) */
+  }
+  
+  /* Alt Menü (Görünür Olduğunda) */
+  #urunlerAltMenu.show {
+    display: block; /* veya visibility: visible; */
+  }
+  
+  /* ... diğer stiller ... */
+
+
+
+
+
+  /* ... diğer stiller ... */
+
+/* İletişim Menüsü */
+#iletisimMenu {
+    cursor: pointer; /* Tıklanabilir olduğunu belirtmek için imleci değiştir */
+  }
+  
+  /* Alt Menü (Başlangıçta Gizli) */
+  #iletisimAltMenu {
+    display: none; /* veya visibility: hidden; */
+    margin-left: 20px; /* İç içe görünüm için soldan boşluk (isteğe bağlı) */
+  }
+  
+  /* Alt Menü (Görünür Olduğunda) */
+  #iletisimAltMenu.show {
+    display: block; /* veya visibility: visible; */
+  }
+  
+
+
+
+  /* ... diğer stiller ... */
+
+/* Hizmetler Menüsü */
+#hizmetlerMenu {
+    cursor: pointer; /* Tıklanabilir olduğunu belirtmek için imleci değiştir */
+  }
+  
+  /* Alt Menü (Başlangıçta Gizli) */
+  #hizmetlerAltMenu {
+    display: none; /* veya visibility: hidden; */
+    margin-left: 20px; /* İç içe görünüm için soldan boşluk (isteğe bağlı) */
+  }
+  
+  /* Alt Menü (Görünür Olduğunda) */
+  #hizmetlerAltMenu.show {
+    display: block; /* veya visibility: visible; */
+  }
+  
+  /* ... diğer stiller ... */
+
+
+
+  /* Genel stiller (isteğe bağlı) */
+body {
+    font-family: sans-serif;
+  }
+  
+  /* Kurumsal Menüsü */
+  #kurumsalMenu {
+    cursor: pointer; /* Tıklanabilir olduğunu belirtmek için imleci değiştir */
+  }
+  
+  /* Alt Menü (Başlangıçta Gizli) */
+  #kurumsalAltMenu {
+    display: none; /* veya visibility: hidden; */
+    margin-left: 20px; /* İç içe görünüm için soldan boşluk (isteğe bağlı) */
+  }
+  
+  /* Alt Menü (Görünür Olduğunda) */
+  #kurumsalAltMenu.show {
+    display: block; /* veya visibility: visible; */
+  }
+  
+  /* Alt Menü Öğeleri */
+  #kurumsalAltMenu a {
+    display: block; /* Alt menü öğelerini alt alta sıralar */
+    padding: 10px; /* Öğelerin iç boşluğu */
+    text-decoration: none; /* Bağlantıların alt çizgisini kaldırır */
+    color: #ffffff; /* Metin rengi */
+  }
+  
+  /* Alt Menü Öğeleri (Üzerine Gelindiğinde) */
+  #kurumsalAltMenu a:hover {
+    background-color: #f0f0f0; /* Arka plan rengi */
+  }
+
+</style>
